@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in</title>
+    <link href="sign_in.css" rel="stylesheet">
+</head>
+<body>
+    
+    <p id="sekil1">
+        <img src="download.png">
+        </p>
+        <p >
+            <form id="form">
+                <input id="name" placeholder="Your username:" type="text"><br><br><br>
+                
+                <input id="pass" placeholder="Your password:" type="password"><br><br><br><br>
+                
+                <input id="log" value="Log in" onclick="signin()" type="button">
+               
+            
+                </form>
+        </p>
+        
+        <p class="back">
+            <a id="home"  href="http://127.0.0.1:5500/home.html#text8">
+                Home
+            </a>
+            <a id="about" href="file:///C:/Users/ilkin/Desktop/templates/home.html#about2">
+               About
+            </a>
+            <a id="Products" href="http://127.0.0.1:5500/product.html">
+                 Products
+            </a>
+            <a id="contact" href="file:///C:/Users/ilkin/Desktop/templates/home.html#text9">
+                Contact
+    
+            </a>
+        </p>
+   
+    <img src="3.jpg" width="100%" height="100%">
+
+    <script src="API.js"></script>
+    
+    <script>
+        function signin(){
+            let usname = document.getElementById("name").value;
+            let pass = document.getElementById("pass").value;
+        
+            
+       const store = new SteinStore(
+    "https://api.steinhq.com/v1/storages/628e1bbbbca21f053e97ae3f"
+  );
+
+ /* data = [{
+      name: john,
+      pass: 1234
+  }]
+*/
+
+  store.read("register", { search: { name: "john" , password: "doe" } }  ).then(data => {
+      
+    let username = data[0].name;
+    let password1 = data[0].password;
+
+    if(password1 == password && username == name){
+        alert("daxil oldunuz")
+    }
+    else{
+        alert("Adınız və ya parolunuz səhvdir")
+    }
+  });
+  
+        
+        
+
+        
+    </script>
+    <div id="end">© 2022 Sales website. All rights reserved. Cookie policy, Privacy and Terms.</div>
+</body>
+</html>
